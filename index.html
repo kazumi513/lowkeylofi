@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lowkey Lofi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-gray-100 overflow-x-hidden">
+  <!-- Floating Background Elements -->
+  <div class="fixed -top-32 -right-64 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
+  <div class="fixed -bottom-64 -left-64 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl"></div>
+
+  <!-- "Lowkey Lofi" Text -->
+  <div class="fixed top-4 left-4 text-4xl font-bold font-fira text-white/80">
+    Lowkey Lofi
+  </div>
+
+  <!-- MacBook Dock -->
+  <div id="dock" class="dock">
+    <div class="dock-content">
+      <!-- Custom icons for each channel -->
+      <button onclick="changeChannel('M-4zE2GG87w')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/spring.png" alt="spring"></button>
+      <button onclick="changeChannel('r3JG5gBLbpA')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/city-buildings.png" alt="city-buildings"></button>
+      <button onclick="changeChannel('vrB9wC6quaU')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/balcony.png" alt="balcony"></button>
+      <button onclick="changeChannel('92PvEVG0sKI')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/laptop.png" alt="laptop"></button>
+      <button onclick="changeChannel('hB2LatX6NLg')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/japan.png" alt="japan"></button>
+      <button onclick="changeChannel('vYIYIVmOo3Q')"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/rain--v1.png" alt="rain--v1"></button>
+      <button onclick="changeChannel('CX9_h23icoM')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/tabletop-radio.png" alt="tabletop-radio"/></button>
+      <button onclick="changeChannel('yf5NOyy1SXU')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/empty-bed.png" alt="empty-bed"></button>
+      <button onclick="changeChannel('4LIu4EyuDXI')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/egg-pokemon.png" alt="egg-pokemon"></button>
+      <button onclick="changeChannel('5yx6BWlEVcY')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/chillhop-music.png"></button>
+      <button onclick="changeChannel('0pb3E4PGxq8')"><img width="20" height="20" src="https://img.icons8.com/glyph-neue/64/sakura.png" alt="sakura"></button>
+      <button onclick="changeChannel('Vg13S-zzol0')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/pagoda.png" alt="pagoda"></button>
+      <button onclick="changeChannel('FYJ7RCDgFwE')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/cafe.png" alt="cafe"></button>
+      <button onclick="changeChannel('LC0fYEpy2ng')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/happy--v1.png" alt="happy--v1"></button>
+      <button onclick="changeChannel('nP-aOc7g228')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/garden.png" alt="garden"></button>
+      <button onclick="changeChannel('5D5b0-hfzno')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/star-wars.png" alt="star-wars"></button>
+      <button onclick="changeChannel('jEIFHt4q6nA')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/saxophone.png" alt="saxophone"></button>
+      <button onclick="changeChannel('IDZHHQsmvmc')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/beach.png" alt="beach"></button>
+      <button onclick="changeChannel('yr9ZxQaWkqs')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/noodles.png" alt="noodles"></button>
+      <button onclick="changeChannel('_mHmfLfx0NU')"><img width="20" height="20" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/24/external-emd-music-for-party-and-festival-season-songs-genre-genre-bold-tal-revivo.png"></button>
+      <button onclick="changeChannel('x0OLPEjna8A')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/espresso-cup.png" alt="espresso-cup"></button>
+      <button onclick="changeChannel('KMXZF-K2mus')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/under-computer.png" alt="under-computer"></button>
+      <button onclick="changeChannel('GB7kh1tvZxY')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/dance-with-devil.png" alt="dance-with-devil"></button>
+      <button onclick="changeChannel('orFvdB0gJng')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/alto-saxophone.png" alt="alto-saxophone"></button>
+      <button onclick="changeChannel('XM8bbRA3qio')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/nintendo-switch-pro-controller.png" alt="nintendo-switch-pro-controller"></button>
+      <button onclick="changeChannel('d_t5nnK9Rn4')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/lotus.png" alt="lotus"></button>
+      <button onclick="changeChannel('28KRPhVzCus')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/pillow.png" alt="pillow"></button>
+      <button onclick="changeChannel('ft6R-UNXLSs')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/pet-commands-train.png" alt="pet-commands-train"></button>
+      <button onclick="changeChannel('snL_Pdh51ww')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/high-speed-train.png" alt="high-speed-train"></button>
+      <button onclick="changeChannel('dw_Bx0e0lis')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/food-bar.png" alt="food-bar"></button>
+      <button onclick="changeChannel('pxWfp8Hxazo')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/book-shelf.png" alt="book-shelf"></button>
+      <button onclick="changeChannel('x9MolslcpzU')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/vaporwave.png" alt="vaporwave"></button>
+      <button onclick="changeChannel('1AOMHYL_pz4')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/reading.png" alt="reading"></button>
+      <button onclick="changeChannel('jfKfPfyJRdk')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/hand-with-pen.png" alt="hand-with-pen"></button>
+      <button onclick="changeChannel('R4jvhTed_gM')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/portable-speaker2.png" alt="portable-speaker2"></button>
+      <button onclick="changeChannel('WcI5cDt37ec')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/my-computer--v2.png" alt="my-computer--v2"></button>
+      <button onclick="changeChannel('7NOSDKb0HlU')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/person-laying-down.png" alt="person-laying-down"></button>
+      <button onclick="changeChannel('PRgS7hBgR1k')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/bright-moon.png" alt="bright-moon"></button>
+      <button onclick="changeChannel('Lv0SzPoZltY')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/workstation.png" alt="workstation"></button>
+      <button onclick="changeChannel('6tWWPn1lYgU')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/latern.png" alt="latern"></button>
+      <button onclick="changeChannel('erUTqlcsDJI')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/2400.png" alt="2400"></button>
+      <button onclick="changeChannel('Na0w3Mz46GA')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/globe-asia.png" alt="globe-asia"></button>
+      <button onclick="changeChannel('wJSg1H8wOUg')"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/listening-to-music-on-headphones.png" alt="listening-to-music-on-headphones"></button>
+    </div>
+  </div>
+
+  <!-- Pomodoro Window -->
+  <div id="pomodoro-window" class="mini-window">
+    <div class="header">
+      <span class="close-btn" onclick="closeWindow()">X</span>
+    </div>
+    <div class="pomodoro-session-tracker">
+      <div class="session-circles">
+        <div class="circle" data-session="1"></div>
+        <div class="circle" data-session="2"></div>
+        <div class="circle" data-session="3"></div>
+        <div class="circle" data-session="4"></div>
+        <div class="circle" data-session="5"></div>
+      </div>
+    </div>
+    <div class="flip-clock">60:00</div>
+    <div class="controls">
+      <button class="study-btn" onclick="startStudy()"><i class="fas fa-book"></i></button>
+      <button class="short-break-btn" onclick="startShortBreak()"><i class="fas fa-coffee"></i></button>
+      <button class="long-break-btn" onclick="startLongBreak()"><i class="fas fa-couch"></i></button>
+      <button class="replay-btn" onclick="resetTimer()"><i class="fas fa-redo"></i></button>
+    </div>
+  </div>
+
+  <!-- Video Container -->
+  <div class="video-container">
+    <iframe id="lofi-player" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <button onclick="togglePomodoroWindow()"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/alarm.png" alt="alarm"></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

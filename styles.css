@@ -1,0 +1,206 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+/* "Lowkey Lofi" Text */
+.font-fira {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Dock Styles */
+.dock {
+  position: fixed;
+  bottom: -60px; /* Start position: hidden below the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: bottom 0.3s ease, left 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.dock.visible {
+  bottom: 8px; /* Move dock up to its visible position */
+}
+
+.dock-content {
+  display: flex;
+  gap: 8px;
+}
+
+.dock button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dock button:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.dock img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Pomodoro Mini Window Styles */
+.mini-window {
+  width: 240px;
+  height: 220px;
+  background-color: rgba(46, 26, 71, 0.8);
+  color: white;
+  border-radius: 16px;
+  padding: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.header {
+  text-align: right;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pomodoro-session-tracker {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.session-circles {
+  display: flex;
+  gap: 8px;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.circle.filled {
+  background-color: white;
+}
+
+.flip-clock {
+  font-size: 28px;
+  text-align: center;
+  margin: 16px 0;
+  font-family: 'Fira Code', monospace;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.controls button {
+  background-color: rgba(75, 46, 131, 0.8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.controls button:hover {
+  background-color: rgba(95, 66, 151, 0.8);
+  transform: scale(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.controls button i {
+  font-size: 18px;
+}
+
+/* Video Container Styles */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .dock {
+    bottom: auto; /* Reset bottom position */
+    left: -60px; /* Start position: hidden to the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    flex-direction: column; /* Stack icons vertically */
+    padding: 12px 6px; /* Adjust padding for vertical layout */
+  }
+
+  .dock.visible {
+    left: 8px; /* Move dock to the visible position */
+    bottom: auto; /* Reset bottom position */
+  }
+
+  .dock-content {
+    flex-direction: column; /* Stack icons vertically */
+    gap: 8px; /* Reduce gap for vertical layout */
+  }
+
+  .dock img {
+    width: 16px; /* Smaller icons for vertical layout */
+    height: 16px; /* Smaller icons for vertical layout */
+  }
+
+  .mini-window {
+    width: 180px;
+    height: 180px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .flip-clock {
+    font-size: 24px;
+  }
+
+  .controls button {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
