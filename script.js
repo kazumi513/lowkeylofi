@@ -69,10 +69,11 @@ function startLongBreak() {
 function resetTimer() {
   clearInterval(timerInterval);
   const flipClock = document.querySelector('.flip-clock');
-  flipClock.textContent = "60:00";
+  flipClock.textContent = "25:00"; // Reset to default Pomodoro session
   currentSession = 0;
   updateSessionCircles();
 }
+
 
 // Update Session Circles
 function updateSessionCircles() {
@@ -109,6 +110,16 @@ function changeChannel(videoId) {
 const dock = document.getElementById('dock');
 let dockTimeout;
 
+dock.addEventListener('mouseenter', () => {
+  clearTimeout(dockTimeout);
+});
+dock.addEventListener('mouseleave', () => {
+  dockTimeout = setTimeout(() => {
+    dock.classList.remove('visible');
+  }, 3000);
+});
+
+
 // Show dock when mouse enters window
 document.addEventListener('mousemove', (e) => {
   if (e.clientY > window.innerHeight - 50) {
@@ -140,4 +151,15 @@ function togglePomodoroWindow() {
     pomodoroWindow.style.display = 'none';
   }
 }
+
+const channels = ['M-4zE2GG87w', 'vYIYIVmOo3Q', 'CX9_h23icoM', 'yf5NOyy1SXU', '4LIu4EyuDXI', 'nP-aOc7g228', '5D5b0-hfzno', 'jEIFHt4q6nA','IDZHHQsmvmc', 
+  'yr9ZxQaWkqs', '_mHmfLfx0NU', 'x0OLPEjna8A', 'KMXZF-K2mus','GB7kh1tvZxY', 'orFvdB0gJng', 'XM8bbRA3qio', 'd_t5nnK9Rn4', '5yx6BWlEVcY', 'LC0fYEpy2ng', 
+  '0pb3E4PGxq8', 'Vg13S-zzol0', 'FYJ7RCDgFwE','vrB9wC6quaU', 'hB2LatX6NLg', '92PvEVG0sKI', 'r3JG5gBLbpA', '5qap5aO4i9A', '28KRPhVzCus', 'ft6R-UNXLSs',
+'snL_Pdh51ww', 'dw_Bx0e0lis', 'pxWfp8Hxazo', 'x9MolslcpzU', '1AOMHYL_pz4', 'jfKfPfyJRdk', 'R4jvhTed_gM', 'WcI5cDt37ec', '7NOSDKb0HlU', 'PRgS7hBgR1k',
+'Lv0SzPoZltY', '6tWWPn1lYgU', 'erUTqlcsDJI', 'Na0w3Mz46GA', 'wJSg1H8wOUg', 'pJE-euPdroo', 'dxyaNvclgE8'];
+function surpriseChannel() {
+  const random = channels[Math.floor(Math.random() * channels.length)];
+  changeChannel(random);
+}
+
 
