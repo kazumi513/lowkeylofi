@@ -140,3 +140,4 @@ function togglePomodoroWindow() {
     pomodoroWindow.style.display = 'none';
   }
 }
+

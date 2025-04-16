@@ -15,7 +15,7 @@ body {
 /* Dock Styles */
 .dock {
   position: fixed;
-  bottom: -60px; /* Start position: hidden below the screen */
+  bottom: -80px; /* Start position: hidden below the screen */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.05);
@@ -23,21 +23,27 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 8px;
+  padding: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   transition: bottom 0.3s ease, left 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dock img {
+  width: 36px; /* Smaller icons for vertical layout */
+  height: 36px; /* Smaller icons for vertical layout */
 }
 
 .dock.visible {
-  bottom: 8px; /* Move dock up to its visible position */
+  bottom: 16px; /* Move dock up to its visible position */
 }
 
 .dock-content {
-  display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
 .dock button {
@@ -48,14 +54,15 @@ body {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+.dock:hover,
+.dock.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .dock button:hover {
   opacity: 1;
   transform: scale(1.2);
-}
-
-.dock img {
-  width: 20px;
-  height: 20px;
 }
 
 /* Pomodoro Mini Window Styles */
@@ -166,15 +173,17 @@ iframe {
 @media (max-width: 768px) {
   .dock {
     bottom: auto; /* Reset bottom position */
-    left: -60px; /* Start position: hidden to the left */
+    left: -80px; /* Start position: hidden to the left */
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
     flex-direction: column; /* Stack icons vertically */
-    padding: 12px 6px; /* Adjust padding for vertical layout */
+    padding: 16px 10px; /* Adjust padding for vertical layout */
+    
+    
   }
 
   .dock.visible {
-    left: 8px; /* Move dock to the visible position */
+    left: 16px; /* Move dock to the visible position */
     bottom: auto; /* Reset bottom position */
   }
 
@@ -184,8 +193,8 @@ iframe {
   }
 
   .dock img {
-    width: 16px; /* Smaller icons for vertical layout */
-    height: 16px; /* Smaller icons for vertical layout */
+    width: 36px; /* Smaller icons for vertical layout */
+    height: 36px; /* Smaller icons for vertical layout */
   }
 
   .mini-window {
