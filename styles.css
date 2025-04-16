@@ -1,16 +1,12 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #1a1a1a;
 }
 
-/* "Lowkey Lofi" Text */
-.font-fira {
-  font-family: 'Fira Code', monospace;
-}
 
 /* Dock Styles */
 .dock {
@@ -23,7 +19,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 12px;
+  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +39,7 @@ body {
 }
 
 .dock-content {
-  gap: 12px;
+  gap: 48px;
 }
 
 .dock button {
@@ -213,3 +209,4 @@ iframe {
     font-size: 14px;
   }
 }
+
