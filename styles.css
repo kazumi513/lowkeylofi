@@ -7,6 +7,18 @@ body {
   background-color: #1a1a1a;
 }
 
+/* Pomodoro Variables */
+:root {
+  --primary: #9764c7;
+  --primary-light: #b78edb;
+  --primary-dark: #7e49b6;
+  --background: #1a1a2e;
+  --text: #ffffff;
+  --text-secondary: #cccccc;
+  --overlay: rgba(26, 26, 46, 0.7);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --border-radius: 12px;
+}
 
 /* Dock Styles */
 .dock {
@@ -61,10 +73,10 @@ body {
   transform: scale(1.2);
 }
 
-/* Pomodoro Mini Window Styles */
+/* Pomodoro Mini Window Styles - Enhanced */
 .mini-window {
-  width: 240px;
-  height: 220px;
+  width: 300px;
+  height: auto;
   background-color: rgba(46, 26, 71, 0.8);
   color: white;
   border-radius: 16px;
@@ -80,7 +92,21 @@ body {
 }
 
 .header {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 0.3rem;
 }
 
 .close-btn {
@@ -88,65 +114,415 @@ body {
   font-size: 16px;
 }
 
-.pomodoro-session-tracker {
+/* Progress Dots */
+.progress-dots {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-secondary);
+  opacity: 0.3;
+}
+
+.dot.active {
+  background-color: var(--text);
+  opacity: 1;
+}
+
+/* Timer Display */
+.timer-display {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 3rem 1rem;
+  background: linear-gradient(to right, rgba(151, 100, 199, 0.1), rgba(151, 100, 199, 0.2));
+  border: 1px solid rgba(151, 100, 199, 0.3);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-display::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+.timer-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.timer-time {
+  position: relative;
+  z-index: 2;
+  font-family: monospace;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--text);
+}
+
+/* Magic border animation */
+.timer-display::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  background: linear-gradient(90deg, var(--primary), #b578e9, var(--primary));
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.2; }
+}
+
+/* Particle animation */
+@keyframes particleRise {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+/* Timer Controls */
+.timer-controls {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.session-circles {
-  display: flex;
-  gap: 8px;
-}
-
-.circle {
-  width: 12px;
-  height: 12px;
-  border: 2px solid white;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.circle.filled {
-  background-color: white;
-}
-
-.flip-clock {
-  font-size: 28px;
-  text-align: center;
-  margin: 16px 0;
-  font-family: 'Fira Code', monospace;
-}
-
-.controls {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.controls button {
-  background-color: rgba(75, 46, 131, 0.8);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px;
-  border-radius: 12px;
-  cursor: pointer;
-  flex: 1;
+.control-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.controls button:hover {
-  background-color: rgba(95, 66, 151, 0.8);
-  transform: scale(1.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+.control-button.primary {
+  background-color: rgba(26, 26, 46, 0.7);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  min-width: 7rem;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.controls button i {
-  font-size: 18px;
+.control-button.primary:hover {
+  background-color: rgba(26, 26, 46, 0.9);
+}
+
+.control-button.secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(151, 100, 199, 0.2);
+  color: var(--text);
+  padding: 0.75rem;
+  backdrop-filter: blur(4px);
+}
+
+.control-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Timer Tabs */
+.timer-tabs {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(151, 100, 199, 0.2);
+  padding-top: 1rem;
+  align-items: center;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: var(--primary-light);
+}
+
+.tab-button.active {
+  color: var(--text);
+  font-weight: bold;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform-origin: left;
+  animation: scaleIn 0.3s forwards;
+}
+
+@keyframes scaleIn {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.settings-btn .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.settings-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.settings-content {
+  position: relative;
+  max-width: 90%;
+  width: 400px;
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.settings-panel.open .settings-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.settings-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.close-btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.settings-section {
+  margin-bottom: 1.5rem;
+}
+
+.settings-section h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.setting-item {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-item label {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-right: 1rem;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-unit input {
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.3rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.unit {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-left: 0.3rem;
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  color: var(--text);
+  min-width: 120px;
+}
+
+.save-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  font-weight: 500;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.setting-item.toggle {
+  margin-bottom: 1.2rem;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Particle style */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: particleRise var(--duration, 3s) ease-out infinite;
+  bottom: 0;
+  opacity: 0;
 }
 
 /* Video Container Styles */
@@ -174,8 +550,6 @@ iframe {
     transform: translateY(-50%); /* Center vertically */
     flex-direction: column; /* Stack icons vertically */
     padding: 16px 10px; /* Adjust padding for vertical layout */
-    
-    
   }
 
   .dock.visible {
@@ -194,18 +568,39 @@ iframe {
   }
 
   .mini-window {
-    width: 180px;
-    height: 180px;
+    width: 280px;
+    height: auto;
     top: 10px;
     right: 10px;
+    padding: 12px;
   }
 
-  .flip-clock {
-    font-size: 24px;
+  .timer-time {
+    font-size: 2.5rem;
   }
 
-  .controls button {
-    padding: 6px;
-    font-size: 14px;
+  .timer-display {
+    min-height: 100px;
+    padding: 2rem 1rem;
+  }
+
+  .control-button.primary {
+    padding: 0.6rem 1.2rem;
+    min-width: 5rem;
+  }
+
+  .control-button.secondary {
+    padding: 0.6rem;
+  }
+
+  .tab-button {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .settings-content {
+    max-width: 95%;
+    width: 320px;
+    padding: 1rem;
   }
 }
