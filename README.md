@@ -49,7 +49,7 @@
 2. Open `index.html` in a browser.  
 
 ## Live Demo 🌐  
-[View Live]([https://your-deployed-link.com](https://lowkeylofi.vercel.app/)) 
+[View Live]([(https://lowkeylofi.vercel.app/)](https://lowkeylofi.vercel.app/)) 
 
 ## License 📜  
 MIT  
