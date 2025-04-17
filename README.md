@@ -2,7 +2,7 @@
 
 **Non-Disruptive Live Lofi Channels with a Built-in Pomodoro Timer**  
 
-![Demo Screenshot](https://via.placeholder.com/800x500/1a1a2e/ffffff?text=Lowkey+Lofi+Demo) *(Replace with an actual screenshot)*  
+![Demo Screenshot](https://files.catbox.moe/6wn5rb.png) 
 
 ## Features ✨  
 
@@ -49,7 +49,7 @@
 2. Open `index.html` in a browser.  
 
 ## Live Demo 🌐  
-[View Live](https://your-deployed-link.com) *(Add your hosted link here)*  
+[View Live](https://lowkeylofi.vercel.app/)
 
 ## License 📜  
 MIT  
