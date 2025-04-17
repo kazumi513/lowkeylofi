@@ -528,11 +528,23 @@ input:checked + .slider:before {
 /* Video Container Styles */
 .video-container {
   position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: 0;
+}
+
+.video-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 135px; /* Adjust to cover logo */
+  height: 75px;
+  background: #0C0705; /* Match your background (bg-slate-900) */
+  z-index: 10;
 }
 
 iframe {
