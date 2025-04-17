@@ -403,12 +403,11 @@ function changeChannel(videoId) {
 }
 
 const channels = [
-'M-4zE2GG87w', 'r3JG5gBLbpA', 'vrB9wC6quaU', '92PvEVG0sKI', 'hB2LatX6NLg','vYIYIVmOo3Q', 'CX9_h23icoM', 'yf5NOyy1SXU',
-'4LIu4EyuDXI', '5yx6BWlEVcY', '0pb3E4PGxq8','Vg13S-zzol0','FYJ7RCDgFwE', 'LC0fYEpy2ng', 'nP-aOc7g228', '5D5b0-hfzno',
-'jEIFHt4q6nA', 'IDZHHQsmvmc','yr9ZxQaWkqs', '_mHmfLfx0NU', 'x0OLPEjna8A', 'KMXZF-K2mus', 'GB7kh1tvZxY', 'orFvdB0gJng',
-'XM8bbRA3qio', 'd_t5nnK9Rn4', '28KRPhVzCus', 'ft6R-UNXLSs', 'snL_Pdh51ww', 'dw_Bx0e0lis','pxWfp8Hxazo','x9MolslcpzU',
-'1AOMHYL_pz4','jfKfPfyJRdk', 'R4jvhTed_gM', 'WcI5cDt37ec', '7NOSDKb0HlU','PRgS7hBgR1k','Lv0SzPoZltY', '6tWWPn1lYgU', 
-'erUTqlcsDJI', 'Na0w3Mz46GA', 'wJSg1H8wOUg', 'pJE-euPdroo' ];
+    'M-4zE2GG87w','r3JG5gBLbpA','vrB9wC6quaU','92PvEVG0sKI','hB2LatX6NLg','vYIYIVmOo3Q','CX9_h23icoM','yf5NOyy1SXU','4LIu4EyuDXI','5yx6BWlEVcY','0pb3E4PGxq8',
+    'Vg13S-zzol0','FYJ7RCDgFwE','LC0fYEpy2ng','nP-aOc7g228','5D5b0-hfzno','jEIFHt4q6nA','IDZHHQsmvmc','yr9ZxQaWkqs','_mHmfLfx0NU','x0OLPEjna8A','KMXZF-K2mus',
+    'GB7kh1tvZxY','orFvdB0gJng','XM8bbRA3qio','d_t5nnK9Rn4','28KRPhVzCus','ft6R-UNXLSs','C_9FdFnE5hY','dw_Bx0e0lis','pxWfp8Hxazo','x9MolslcpzU','1AOMHYL_pz4',
+    'jfKfPfyJRdk','R4jvhTed_gM','WcI5cDt37ec','7NOSDKb0HlU','PRgS7hBgR1k','Lv0SzPoZltY','6tWWPn1lYgU','erUTqlcsDJI','Na0w3Mz46GA','wJSg1H8wOUg','pJE-euPdroo'
+];
 
 function surpriseChannel() {
     changeChannel(channels[Math.floor(Math.random() * channels.length)]);
@@ -436,6 +435,3 @@ document.addEventListener('mousemove', (e) => {
 
 // Initialize the app when the document is ready
 document.addEventListener('DOMContentLoaded', init);
-
-
-
